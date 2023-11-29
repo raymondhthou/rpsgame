@@ -11,12 +11,21 @@ function getComputerChoice() {
 function rpsSingleRound (playerSelection, computerSelection) {
     if (playerSelection == 'rock' && computerSelection == 'scissors') {
     return "You win! Rock beats Scissors";
+} else if (playerSelection == 'paper' && computerSelection == 'rock') {
+    return "You win! Paper beats Rock";
+} else if (playerSelection == 'scissors' && computerSelection == 'paper') {
+    return "You win! Scissors beat Paper";
 } else if (playerSelection == 'rock' && computerSelection == 'paper') {
     return "You lose! Paper beats Rock";
-} else (playerSelection == 'rock' && computerSelection == 'rock')
+} else if (playerSelection == 'paper' && computerSelection == 'scissors') {
+    return "You Lose! Scissors beats Paper";
+} else if (playerSelection == 'scissors' && computerSelection == 'rock') {
+    return "You Lose! Rock beats Scissors";
+} else (playerSelection === 'rock' || 'paper' || 'scissors' && computerSelection === 'rock' || 'paper' || 'scissors') 
     return "It's a tie!";
 }
 
-const playerSelection = 'rock';
+
+const playerSelection = ('');
 const computerSelection = getComputerChoice();
 console.log(rpsSingleRound(playerSelection, computerSelection));
