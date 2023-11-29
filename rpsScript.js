@@ -9,19 +9,19 @@ function getComputerChoice() {
 // This function will play the game 'Rock, Paper, Scissors' in one round. The user (player) and the opponent (computer) will play against each other. When the game/round ends a message will declare win, lose or tie.
 
 function rpsSingleRound (playerSelection, computerSelection) {
-    if (playerSelection == 'rock' && computerSelection == 'scissors') {
+    if (playerSelection.toLowerCase() == 'rock' && computerSelection.toLowerCase() == 'scissors') {
     return "You win! Rock beats Scissors";
-} else if (playerSelection == 'paper' && computerSelection == 'rock') {
+} else if (playerSelection.toLowerCase() == 'paper' && computerSelection.toLowerCase() == 'rock') {
     return "You win! Paper beats Rock";
-} else if (playerSelection == 'scissors' && computerSelection == 'paper') {
+} else if (playerSelection.toLowerCase() == 'scissors' && computerSelection.toLowerCase() == 'paper') {
     return "You win! Scissors beat Paper";
-} else if (playerSelection == 'rock' && computerSelection == 'paper') {
+} else if (playerSelection.toLowerCase() == 'rock' && computerSelection.toLowerCase() == 'paper') {
     return "You lose! Paper beats Rock";
-} else if (playerSelection == 'paper' && computerSelection == 'scissors') {
+} else if (playerSelection.toLowerCase() == 'paper' && computerSelection.toLowerCase() == 'scissors') {
     return "You Lose! Scissors beats Paper";
-} else if (playerSelection == 'scissors' && computerSelection == 'rock') {
+} else if (playerSelection.toLowerCase() == 'scissors' && computerSelection.toLowerCase() == 'rock') {
     return "You Lose! Rock beats Scissors";
-} else (playerSelection === 'rock' || 'paper' || 'scissors' && computerSelection === 'rock' || 'paper' || 'scissors') 
+} else (playerSelection.toLowerCase() === 'rock' || 'paper' || 'scissors' && computerSelection.toLowerCase() === 'rock' || 'paper' || 'scissors') 
     return "It's a tie!";
 }
 
@@ -29,3 +29,6 @@ function rpsSingleRound (playerSelection, computerSelection) {
 const playerSelection = ('');
 const computerSelection = getComputerChoice();
 console.log(rpsSingleRound(playerSelection, computerSelection));
+
+// The function game() will determine which player will win best-out-of-five, where each player's scores are recorded and at the end declare a message of a winner and loser.
+
