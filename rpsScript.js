@@ -43,27 +43,27 @@ function game() {
 // This function will play the game 'Rock, Paper, Scissors' in one round. The user (player) and the opponent (computer) will play against each other. When the game/round ends a message will declare win, lose or tie.
 
 
-function rpsRound(playerSelection, computerSelection) {
+function rpsRound( playerSelection, computerChoice) {
 
-    if (playerSelection.toLowerCase() == 'rock' && computerSelection.toLowerCase() == 'scissors') {
+    if (playerSelection.toLowerCase() == 'rock' && computerChoice.toLowerCase() == 'scissors') {
         console.log("You win! Rock beats Scissors");
         return true;
-    } else if (playerSelection.toLowerCase() == 'paper' && computerSelection.toLowerCase() == 'rock') {
+    } else if (playerSelection.toLowerCase() == 'paper' && computerChoice.toLowerCase() == 'rock') {
         console.log("You win! Paper beats Rock");
         return true;
-    } else if (playerSelection.toLowerCase() == 'scissors' && computerSelection.toLowerCase() == 'paper') {
+    } else if (playerSelection.toLowerCase() == 'scissors' && computerChoice.toLowerCase() == 'paper') {
         console.log("You win! Scissors beat Paper");
         return true;
-    } else if (playerSelection.toLowerCase() == 'rock' && computerSelection.toLowerCase() == 'paper') {
+    } else if (playerSelection.toLowerCase() == 'rock' && computerChoice.toLowerCase() == 'paper') {
         console.log("You lose! Paper beats Rock");
         return false;
-    } else if (playerSelection.toLowerCase() == 'paper' && computerSelection.toLowerCase() == 'scissors') {
+    } else if (playerSelection.toLowerCase() == 'paper' && computerChoice.toLowerCase() == 'scissors') {
         console.log("You Lose! Scissors beats Paper");
         return false;
-    } else if (playerSelection.toLowerCase() == 'scissors' && computerSelection.toLowerCase() == 'rock') {
+    } else if (playerSelection.toLowerCase() == 'scissors' && computerChoice.toLowerCase() == 'rock') {
         console.log("You Lose! Rock beats Scissors");
         return false;
-    } else (playerSelection.toLowerCase() == 'rock' || 'paper' || 'scissors' && computerSelection.toLowerCase() == 'rock' || 'paper' || 'scissors')
+    } else (playerSelection.toLowerCase() == 'rock' || 'paper' || 'scissors' && computerChoice.toLowerCase() == 'rock' || 'paper' || 'scissors')
     console.log("Tie, choose again");
 }
 
