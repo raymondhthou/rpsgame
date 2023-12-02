@@ -8,27 +8,53 @@ function getComputerChoice() {
 
 // This function will play the game 'Rock, Paper, Scissors' in one round. The user (player) and the opponent (computer) will play against each other. When the game/round ends a message will declare win, lose or tie.
 
+let playerSelection = ('');
+const computerSelection = getComputerChoice();
+// console.log(rpsSingleRound(playerSelection, computerSelection));
+
+
 function rpsSingleRound (playerSelection, computerSelection) {
-    if (playerSelection.toLowerCase() == 'rock' && computerSelection.toLowerCase() == 'scissors') {
-    return "You win! Rock beats Scissors";
+    playerSelection = prompt("Rock, Paper, Scissors");
+if (playerSelection.toLowerCase() == 'rock' && computerSelection.toLowerCase() == 'scissors') {
+    // return "You win! Rock beats Scissors";
+    return true;
 } else if (playerSelection.toLowerCase() == 'paper' && computerSelection.toLowerCase() == 'rock') {
-    return "You win! Paper beats Rock";
+    // return "You win! Paper beats Rock";
+    return true;
 } else if (playerSelection.toLowerCase() == 'scissors' && computerSelection.toLowerCase() == 'paper') {
-    return "You win! Scissors beat Paper";
+    // return "You win! Scissors beat Paper";
+    return true;
 } else if (playerSelection.toLowerCase() == 'rock' && computerSelection.toLowerCase() == 'paper') {
-    return "You lose! Paper beats Rock";
+    // return "You lose! Paper beats Rock";
+    return false;
 } else if (playerSelection.toLowerCase() == 'paper' && computerSelection.toLowerCase() == 'scissors') {
-    return "You Lose! Scissors beats Paper";
+    // return "You Lose! Scissors beats Paper";
+    return false;
 } else if (playerSelection.toLowerCase() == 'scissors' && computerSelection.toLowerCase() == 'rock') {
-    return "You Lose! Rock beats Scissors";
+    // return "You Lose! Rock beats Scissors";
+    return false;
 } else (playerSelection.toLowerCase() === 'rock' || 'paper' || 'scissors' && computerSelection.toLowerCase() === 'rock' || 'paper' || 'scissors') 
-    return "It's a tie!";
+    console.log("xxx");
+    // return 0;
 }
 
+// The function game() will play the best of five. Input playerSelection for choice of 'Rock, Paper or Scissors' and at the end declare a message for a winner and loser.
 
-const playerSelection = ('');
-const computerSelection = getComputerChoice();
-console.log(rpsSingleRound(playerSelection, computerSelection));
 
-// The function game() will determine which player will win best-out-of-five, where each player's scores are recorded and at the end declare a message of a winner and loser.
-
+function game() {
+    let playerScore = 0;
+    let computerScore = 0;
+    for (i = 0; i < 5; i++) {
+        let result = rpsSingleRound(playerSelection, computerSelection);
+        if (playerSelection === computerSelection) {
+            if (result) {
+                playerScore++;
+                console.log("Player score is " + playerScore);
+            } else {
+                computerScore++;
+                console.log("Computer score is " + computerScore);
+            }    
+            }
+        }
+    }
+game();
