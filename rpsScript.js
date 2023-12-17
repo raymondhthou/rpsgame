@@ -5,48 +5,39 @@ document.getElementById('scissors').onclick = game;
 let playerScore = 0;
 let computerScore = 0;
 
-
-
-// This function getComputerChoice is the opponent (computer) that will choose at random 'rock', 'paper' or 'scissors'.
-
 function getComputerChoice() {
     let choice = ['rock', 'paper', 'scissors'];
     let random = choice[Math.floor(Math.random() * choice.length)];
     return random;
 }
 
-
-// console.log(rpsSingleRound(playerSelection, computerSelection));
-
-// The function game() will play the best of five. Input playerSelection for choice of 'Rock, Paper or Scissors' and at the end declare a message for a winner and loser.
-
-
-
-function game() {
-    let playerSelection = this.id;
+function game(event) {
+    let playerSelection = event.target.id;
     let computerSelection = getComputerChoice();
-    let result = rpsRound(playerSelection, computerSelection);
+    let compare = rpsRound(playerSelection, computerSelection);
+    let result;
 
-        if (result) {
+        if (compare) {
             playerScore++;
-            console.log("Player score is " + playerScore);
+            result = ("User: " + playerSelection + "Computer: " + computerSelection)
+            result = ("Player score is " + playerScore);
             if (playerScore == 5) {
-                console.log("Winner");
+            result += (" You Won! Refresh to play again");
             }
         } else if (playerSelection == computerSelection) {
+            result = ("It's a tie, choose again")
         } else {
             computerScore++;
-            console.log("Computer score is " + computerScore);
+            result = ("User: " + playerSelection + "Computer: " + computerSelection)
+            result = ("Computer score is " + computerScore);
             if (computerScore == 5) {
-                console.log("Computer Win")
+            result = (" Computer Wins! Refresh to play again")
             }
         }
+
+        document.getElementById('result').innerHTML = result
+        return
     
-
-
-    // This function will play the game 'Rock, Paper, Scissors' in one round. The user (player) and the opponent (computer) will play against each other. When the game/round ends a message will declare win, lose or tie.
-
-
     function rpsRound(playerSelection, computerChoice) {
 
         if (playerSelection == 'rock' && computerChoice == 'scissors') {
@@ -67,7 +58,7 @@ function game() {
         } else if (playerSelection == 'scissors' && computerChoice == 'rock') {
             console.log("You Lose! Rock beats Scissors");
             return false;
-        } else (playerSelection == 'rock' || 'paper' || 'scissors' && computerChoice == 'rock' || 'paper' || 'scissors')
-    }   console.log("tie");
-}
-game();
+        } else (playerSelection == 'rock' || 'paper' || 'scissors' && computerChoice == 'rock' || 'paper' || 'scissors') 
+            console.log("It's a tie, please choose again");
+        }
+    } 
