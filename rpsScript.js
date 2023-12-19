@@ -2,10 +2,10 @@ document.getElementById('rock').onclick = game;
 document.getElementById('paper').onclick = game;
 document.getElementById('scissors').onclick = game;
 
-let dbAll = document.querySelectorAll('.buttons');
+let allButtons = document.querySelectorAll('.buttons');
 
 function disableButtons() {
-    dbAll.forEach(btn => {
+    allButtons.forEach(btn => {
         btn.disabled = true;
     })
 }
@@ -25,50 +25,56 @@ function game(event) {
     let compare = rpsRound(playerSelection, computerSelection);
     let result;
 
-        if (compare) {
-            playerScore++;
-            result = ("User: " + playerSelection + "Computer: " + computerSelection)
-            result = ("Player score is " + playerScore);
-            if (playerScore == 5) {
-            result += (" You Won! Refresh to play again");
+    if (compare) {
+        playerScore++;
+        result = ("User: " + playerSelection + " Computer: " + computerSelection + "<br><br>Player Wins score is " + playerScore);
+        if (playerScore == 5) {
+            result += ("<br><br>You Won! Refresh to play again");
             disableButtons();
-            }
-        } else if (playerSelection == computerSelection) {
-            result = ("It's a tie, choose again")
-        } else {
-            computerScore++;
-            result = ("User: " + playerSelection + "Computer: " + computerSelection)
-            result = ("Computer score is " + computerScore);
-            if (computerScore == 5) {
-            result = (" Computer Wins! Refresh to play again");
-            disableButtons();
-            }
         }
+    } else if (playerSelection == computerSelection) {
+        result = ("User: " + playerSelection + " Computer: " + computerSelection + "<br><br>It's a tie, choose again")
+    } else {
+        computerScore++;
+        result = ("User: " + playerSelection + " Computer: " + computerSelection + "<br><br>Computer Wins score is " + computerScore);
+        if (computerScore == 5) {
+            result += ("<br><br>Computer Wins! Refresh to play again");
+            disableButtons();
+        }
+    }
 
-        document.getElementById('result').innerHTML = result
-        return
+    document.getElementById('result').innerHTML = result
+    return
+}
     
+
     function rpsRound(playerSelection, computerChoice) {
 
         if (playerSelection == 'rock' && computerChoice == 'scissors') {
-            // console.log("You win! Rock beats Scissors");
             return true;
         } else if (playerSelection == 'paper' && computerChoice == 'rock') {
-            // console.log("You win! Paper beats Rock");
             return true;
         } else if (playerSelection == 'scissors' && computerChoice == 'paper') {
-            // console.log("You win! Scissors beat Paper");
             return true;
         } else if (playerSelection == 'rock' && computerChoice == 'paper') {
-            // console.log("You lose! Paper beats Rock");
             return false;
         } else if (playerSelection == 'paper' && computerChoice == 'scissors') {
-            // console.log("You Lose! Scissors beats Paper");
             return false;
         } else if (playerSelection == 'scissors' && computerChoice == 'rock') {
-            // console.log("You Lose! Rock beats Scissors");
             return false;
-        } else (playerSelection == 'rock' || 'paper' || 'scissors' && computerChoice == 'rock' || 'paper' || 'scissors') 
-            // console.log("It's a tie, please choose again");
-        }
-    } 
+        } else (playerSelection == 'rock' || 'paper' || 'scissors' && computerChoice == 'rock' || 'paper' || 'scissors')
+    }
+
+    const container = document.querySelector("#container");
+    const div = document.createElement('div');
+    const h1 = document.createElement('h1');
+    const p = document.createElement('p');
+
+    container.classList.add('div');
+    div.append(h1);
+    div.append(p);
+
+    h1.textContent = "Game: Rock, Paper, Scissors"
+    p.textContent = "First to reach 5 points, Wins the Game"
+
+    container.appendChild(div);
